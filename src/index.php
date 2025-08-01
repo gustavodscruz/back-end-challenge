@@ -14,5 +14,32 @@
  */
 declare(strict_types=1);
 
+use App\ExchangeController;
+use App\Utils\Response;
+
 require __DIR__ . '/../vendor/autoload.php';
+
+
+
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+if ($uri !== '/' && file_exists(__DIR__ . '/../../' . $uri)) {
+    Response::routeNotFound();
+    return;
+}
+
+$segments = explode('/', trim($uri, '/')); 
+
+
+if (!(count($segments) === 5 && $segments[0] === 'exchange')){
+    Response::routeNotFound();
+    return;
+}
+
+ExchangeController::convert(new Response, $segments);
+
+
+
+
+
 
