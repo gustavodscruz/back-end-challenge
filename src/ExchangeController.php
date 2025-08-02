@@ -40,13 +40,14 @@ class ExchangeController
      * é suportada entre as moedas especificadas, calcula o valor convertido
      * usando a taxa fornecida e retorna uma resposta JSON formatada.
      * 
-     * @param Response $response Instância da classe Response para enviar a resposta
-     * @param array    $params   Array com os parâmetros: 
-     *                           [0=>route, 1=>amount, 2=>from, 3=>to, 4=>rate]
+     * @param array $params Array com os
+     *                      parâmetros: [0=>route,
+     *                      1=>amount, 2=>from,
+     *                      3=>to, 4=>rate]
      * 
      * @return void
      */
-    public static function convert(Response $response, array $params)
+    public static function convert(array $params)
     {
 
         $amount = floatval($params[1]);
@@ -69,12 +70,12 @@ class ExchangeController
         if (!isset($supportedCurrencies[$from])  
             || !in_array($to, $supportedCurrencies[$from])
         ) {
-            $response::exchangeNotSupported($from, $supportedCurrencies[$from]);
+            Response::exchangeNotSupported($from, $supportedCurrencies[$from]);
             return;
         }
 
         $convertedAmount = $amount * $rate;
 
-        $response::exchangeOk($convertedAmount, $symbols[$to]);
+        Response::exchangeOk($convertedAmount, $symbols[$to]);
     }
 }

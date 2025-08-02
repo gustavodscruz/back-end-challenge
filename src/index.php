@@ -20,7 +20,6 @@ use App\Response;
 require __DIR__ . '/../vendor/autoload.php';
 
 
-
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 if ($uri !== '/' && file_exists(__DIR__ . '/../../' . $uri)) {
@@ -36,7 +35,7 @@ if (!(count($segments) === 5 && $segments[0] === 'exchange')) {
     return;
 }
 
-ExchangeController::convert(new Response, $segments);
+ExchangeController::convert($segments);
 
 
 
