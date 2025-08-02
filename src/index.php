@@ -8,7 +8,7 @@
  *
  * @category Challenge
  * @package  Back-end
- * @author   Seu Nome <seu-email@seu-provedor.com>
+ * @author   Gustavo Dias <gustavodiasdsc@gmail.com>
  * @license  http://opensource.org/licenses/MIT MIT
  * @link     https://github.com/apiki/back-end-challenge
  */
@@ -31,7 +31,7 @@ if ($uri !== '/' && file_exists(__DIR__ . '/../../' . $uri)) {
 $segments = explode('/', trim($uri, '/')); 
 
 
-if (!(count($segments) === 5 && $segments[0] === 'exchange')){
+if (!(count($segments) === 5 && $segments[0] === 'exchange')) {
     Response::routeNotFound();
     return;
 }

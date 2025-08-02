@@ -1,11 +1,51 @@
 <?php
+/**
+ * Back-end Challenge.
+ *
+ * PHP version 7.4
+ *
+ * Controlador responsável pela conversão de moedas.
+ *
+ * @category Challenge
+ * @package  Back-end
+ * @author   Gustavo Dias <gustavodiasdsc@gmail.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @link     https://github.com/apiki/back-end-challenge
+ */
 
 namespace App;
 
 use App\Utils\Response;
 
+/**
+ * Controlador para operações de conversão de moedas.
+ * 
+ * Esta classe é responsável por processar solicitações de conversão
+ * entre diferentes moedas suportadas pela API, validando os parâmetros
+ * de entrada e retornando respostas formatadas.
+ * 
+ * @category Challenge
+ * @package  Back-end
+ * @author   Gustavo Dias <gustavodiasdsc@gmail.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @link     https://github.com/apiki/back-end-challenge
+ * @since    1.0.0
+ */
 class ExchangeController
 {
+    /**
+     * Converte um valor de uma moeda para outra.
+     * 
+     * Este método processa os parâmetros de conversão, valida se a conversão
+     * é suportada entre as moedas especificadas, calcula o valor convertido
+     * usando a taxa fornecida e retorna uma resposta JSON formatada.
+     * 
+     * @param Response $response Instância da classe Response para enviar a resposta
+     * @param array    $params   Array com os parâmetros: 
+     *                           [0=>route, 1=>amount, 2=>from, 3=>to, 4=>rate]
+     * 
+     * @return void
+     */
     public static function convert(Response $response, array $params)
     {
 
@@ -26,7 +66,9 @@ class ExchangeController
             'EUR' => '€'
         ];
 
-        if (!isset($supportedCurrencies[$from]) || !in_array($to, $supportedCurrencies[$from])) {
+        if (!isset($supportedCurrencies[$from])  
+            || !in_array($to, $supportedCurrencies[$from])
+        ) {
             $response::exchangeNotSupported($from, $supportedCurrencies[$from]);
             return;
         }
