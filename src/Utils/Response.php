@@ -28,10 +28,8 @@ class Response
     public static function exchangeOk($convertedAmount, $symbol)
     {
         self::json([
-            'data' => [
-                'valorConvertido' => $convertedAmount,
-                'simboloMoeda' => $symbol
-            ]
+            'valorConvertido' => $convertedAmount,
+            'simboloMoeda' => $symbol
         ], 200);
     }
 }
