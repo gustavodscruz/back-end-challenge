@@ -15,7 +15,7 @@
 declare(strict_types=1);
 
 use App\ExchangeController;
-use App\Utils\Response;
+use App\Response;
 
 require __DIR__ . '/../vendor/autoload.php';
 

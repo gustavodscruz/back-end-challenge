@@ -14,7 +14,7 @@
  * @link     https://github.com/apiki/back-end-challenge
  */
 
-namespace App\Utils;
+namespace App;
 
 /**
  * Classe utilitária para gerenciar respostas HTTP em formato JSON.

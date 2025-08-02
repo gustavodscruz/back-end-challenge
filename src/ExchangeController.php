@@ -15,7 +15,7 @@
 
 namespace App;
 
-use App\Utils\Response;
+use App\Response;
 
 /**
  * Controlador para operações de conversão de moedas.
