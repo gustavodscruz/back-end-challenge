@@ -3,7 +3,7 @@
 /**
  * Back-end Challenge.
  *
- * PHP version 7.4
+ * PHP version 8.1.2
  *
  * Este é o arquivo para respostas http em json.
  *
